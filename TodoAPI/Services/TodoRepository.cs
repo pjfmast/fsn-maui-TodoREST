@@ -47,7 +47,7 @@ namespace TodoAPI.Services
 
         private void InitializeData()
         {
-            _todoList = new List<TodoItem>();
+            _todoList = [];
 
             var todoItem1 = new TodoItem
             {

@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 x:Class="TodoREST.Views.TodoItemPage" 
-			 Title="Todo">
+             xmlns:viewmodels="clr-namespace:TodoREST.ViewModels"
+             x:DataType="viewmodels:TodoItemViewModel"
+			 Title="{Binding Title}">
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="Margin"
@@ -27,10 +29,10 @@
 		<Label Text="Done" />
 		<Switch IsToggled="{Binding Path=TodoItem.Done}" />
 		<Button Text="Save" 
-                Clicked="OnSaveButtonClicked" />
+                Command="{Binding SaveTodoCommand}" />
 		<Button Text="Delete"
-                Clicked="OnDeleteButtonClicked" />
+                Command="{Binding DeleteTodoCommand}" />
 		<Button Text="Cancel" 
-                Clicked="OnCancelButtonClicked" />
+                Command="{Binding CancelTodoCommand}" />
 	</VerticalStackLayout>
 </ContentPage>
