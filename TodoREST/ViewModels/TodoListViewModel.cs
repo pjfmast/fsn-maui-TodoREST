@@ -10,9 +10,9 @@ public class TodoListViewModel : BaseViewModel
     private readonly ITodoService _todoService;
 
     public ObservableCollection<TodoItem> Items { get; set; } = [];
-    public ICommand NewCommand { get; set; }
+    public ICommand NewCommand { get; }
 
-    public ICommand SelectTodoComment { get; set; }
+    public ICommand SelectTodoComment { get; }
 
     public TodoListViewModel(ITodoService service)
     {

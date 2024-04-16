@@ -7,9 +7,9 @@ namespace TodoREST.ViewModels;
 [QueryProperty(nameof(TodoItem), "TodoItem")]
 public class TodoItemViewModel : BaseViewModel
 {
-    public ICommand SaveTodoCommand { get; set; }
-    public ICommand DeleteTodoCommand { get; set; }
-    public ICommand CancelTodoCommand { get; set; }
+    public ICommand SaveTodoCommand { get; }
+    public ICommand DeleteTodoCommand { get; }
+    public ICommand CancelTodoCommand { get; }
 
     private readonly ITodoService _todoService;
     private readonly TodoListViewModel _todoListViewModel;

@@ -17,13 +17,16 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
+		// register services:
 		builder.Services.AddSingleton<IHttpsClientHandlerService, HttpsClientHandlerService>();
 		builder.Services.AddSingleton<IRestService, RestService>();
 		builder.Services.AddSingleton<ITodoService, TodoService>();
 
-		builder.Services.AddSingleton<TodoListPage>();
+        // register views:
+        builder.Services.AddSingleton<TodoListPage>();
 		builder.Services.AddTransient<TodoItemPage>();
 
+        // register ViewModels:
         builder.Services.AddSingleton<TodoListViewModel>();
         builder.Services.AddTransient<TodoItemViewModel>();
 
