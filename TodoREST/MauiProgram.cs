@@ -1,4 +1,5 @@
-﻿using TodoREST.Services;
+﻿using CommunityToolkit.Maui;
+using TodoREST.Services;
 using TodoREST.ViewModels;
 using TodoREST.Views;
 
@@ -11,7 +12,9 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
+            // Initialize the .NET MAUI Community Toolkit by adding the below line of code
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
@@ -23,10 +26,12 @@ public static class MauiProgram
 		builder.Services.AddSingleton<ITodoService, TodoService>();
 
         // register views:
+        builder.Services.AddSingleton<AuthenticatePage>();
         builder.Services.AddSingleton<TodoListPage>();
 		builder.Services.AddTransient<TodoItemPage>();
 
         // register ViewModels:
+        builder.Services.AddSingleton<AuthenticateViewModel>();
         builder.Services.AddSingleton<TodoListViewModel>();
         builder.Services.AddTransient<TodoItemViewModel>();
 

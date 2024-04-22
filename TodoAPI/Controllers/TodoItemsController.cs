@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TodoAPI.Interfaces;
 using TodoAPI.Models;
 
@@ -18,13 +19,16 @@ public enum ErrorCode
 
 #region snippetDI
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
+
 public class TodoItemsController(ITodoRepository todoRepository) : ControllerBase
 {
     #endregion
 
     #region snippet
     [HttpGet]
+    [AllowAnonymous]
     public IActionResult List()
     {
         return Ok(todoRepository.All);

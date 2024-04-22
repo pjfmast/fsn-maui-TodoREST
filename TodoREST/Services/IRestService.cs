@@ -9,5 +9,9 @@ namespace TodoREST.Services
         Task SaveTodoItemAsync(TodoItem item, bool isNewItem);
 
         Task DeleteTodoItemAsync(string id);
+
+        Task Register(RegisterModel model);
+
+        Task Login(LoginModel model);
     }
 }
